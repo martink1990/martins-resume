@@ -304,9 +304,6 @@ footer {
       .cv-main h2::after {
         left: 0;
         width: 110px; } }
-  @media (max-width: 991px) {
-      .cv-main h2 br {
-        display: none; } }
 
 .cv-main h3 span {
   font: inherit;
