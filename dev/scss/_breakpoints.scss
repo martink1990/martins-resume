@@ -1,0 +1,103 @@
+// Devices breakpoints
+$screen-xs-min: 0px;
+$screen-xs-max: 575px;
+$screen-sm-min: 576px;
+$screen-sm-max: 767px;
+$screen-md-min: 768px;
+$screen-md-max: 991px;
+$screen-lg-min: 992px;
+$screen-lg-max: 1199px;
+$screen-xl-min: 1200px;
+$screen-xl-max: 1439px; 
+$screen-xxl-min: 1440px;
+
+@mixin xs-min {
+   @media (min-width: #{$screen-xs-min}) {
+       @content;
+   }
+}
+
+@mixin xs-max {
+   @media (max-width: #{$screen-xs-max}) {
+       @content;
+   }
+}
+
+@mixin sm-min {
+   @media (min-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
+
+@mixin sm-max {
+   @media (max-width: #{$screen-sm-max}) {
+       @content;
+   }
+}
+
+@mixin md-min {
+   @media (min-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+
+@mixin md-max {
+   @media (max-width: #{$screen-md-max}) {
+       @content;
+   }
+}
+
+@mixin lg-min {
+   @media (min-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+
+@mixin lg-max {
+   @media (max-width: #{$screen-lg-max}) {
+       @content;
+   }
+}
+
+@mixin xl-min {
+   @media (min-width: #{$screen-xl-min}) {
+       @content;
+   }
+}
+
+@mixin xl-max {
+   @media (max-width: #{$screen-xl-max}) {
+       @content;
+   }
+}
+
+@mixin xxl-min {
+   @media (min-width: #{$screen-xxl-min}) {
+       @content;
+   }
+} 
+
+// Custom breakpoints between devices
+@mixin sm-min-max {
+   @media (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max}) {
+       @content;
+   }
+}
+
+@mixin md-min-max {
+   @media (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max}) {
+       @content;
+   }
+}
+
+@mixin lg-min-max {
+   @media (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max}) {
+       @content;
+   }
+}
+
+@mixin xl-min-max {
+   @media (min-width: #{$screen-xl-min}) and (max-width: #{$screen-xl-max}) {
+       @content;
+   }
+}

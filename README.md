@@ -1,2 +1,2 @@
 # martins-resume
-Martin Kirev's Resume
+Martin Kirev's Resume/CV

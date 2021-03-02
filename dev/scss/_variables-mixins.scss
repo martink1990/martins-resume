@@ -1,0 +1,34 @@
+$light-color:#fff;
+$primary-color: #2e2e2e;
+$secondary-color:#990000;
+$content-color: #333;
+$bar-color: #ccc;
+$linkedin-blue: #0077b7;
+$facebook-blue: #475993;
+
+$primary-font-stack: 'Raleway', sans-serif;
+$secondary-font-stack: 'Open Sans', sans-serif;
+$special-font-stack: 'Montserrat', sans-serif;
+
+@mixin padding-3 {
+     padding-top: 3rem;
+     padding-bottom: 3rem;
+}
+
+@mixin reset-list {
+     list-style: none;
+     padding-left: 0;
+}
+
+@mixin circle {
+     border-radius: 50%;
+}
+
+@mixin pseudo-element {
+     display: block;
+     content: '';
+}
+
+@mixin box-shadow {
+     box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
+}

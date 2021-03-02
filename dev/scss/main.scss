@@ -1,0 +1,895 @@
+@import '_variables-mixins.scss';
+@import '_fonts.scss';
+@import '_breakpoints.scss';
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@include sm-min {
+    body {
+        background: url('../images/site-bg.jpg') no-repeat top center / cover;
+    }
+
+    .cv-container {
+        background-color: rgba($light-color, .85);
+        @include box-shadow;
+    }
+}
+
+a {
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.cv-wrapper {
+    position: relative;
+    width: 1140px;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+
+    @include sm-min {
+        @include padding-3;
+    }
+
+    @include lg-min {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
+
+header,
+main,
+footer {
+    position: relative;
+}
+
+.cv-header {
+    margin-bottom: 3rem;
+    @include padding-3;
+
+    @include md-max {
+        padding-bottom: 2.5rem;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: -2rem;
+        right: -2rem;
+        width: auto;
+        height: 0;
+        border-bottom: 2px solid $primary-color;
+
+        @include md-max {
+            left: 0;
+            right: 0;
+        }
+    }
+
+    img {
+        display: block;
+        width: 255px;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        @include box-shadow;
+        @include circle;
+
+        @include md-max {
+            margin-bottom: 2rem;
+        }
+    }
+
+    h1 {
+        margin: 0.5rem 0 2rem;
+        color: $primary-color;
+        font-weight: 600;
+        font-size: 3.75rem;
+        line-height: 1;
+        font-family: $special-font-stack;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+
+        @include lg-max {
+            font-size: 3.5rem;
+        }
+
+        @include md-max {
+            text-align: center;
+        }
+
+        @include sm-max {
+            font-size: 3rem;
+        }
+    }
+
+    .cv-contact-links {
+
+        a,
+        span {
+            display: inline-block;
+            margin: 0.5rem 0;
+            color: $content-color;
+            font-size: 1.125rem;
+            font-family: $secondary-font-stack;
+
+            &::before {
+                color: $secondary-color;
+                font: normal 1.25em/1 'icomoon';
+                margin-right: 0.5rem;
+                vertical-align: -3px;
+            }
+        }
+
+        a {
+
+            &:hover,
+            &:focus {
+                color: $secondary-color;
+            }
+        }
+
+        .cv-phone-link {
+            &::before {
+                content: '\e906';
+            }
+        }
+
+        .cv-email-link {
+            &::before {
+                content: '\e901';
+            }
+        }
+
+        .cv-address {
+            &::before {
+                content: '\e905';
+            }
+        }
+
+        .cv-website {
+            &::before {
+                content: '\e903';
+            }
+        }
+    }
+}
+
+.cv-main {
+    @include lg-min {
+        .cv-main-row:last-child {
+            .cv-main-col {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    @include md-max {
+        .cv-main-row:last-child {
+            .cv-main-col {
+                &:last-child {
+                    padding-bottom: 0;
+
+                    &::before {
+                        @include pseudo-element;
+                        z-index: 0;
+                        position: absolute;
+                        bottom: -16.125rem;
+                        left: -4px;
+                        width: 4px;
+                        height: 16.125rem;
+                        background-color: $primary-color;
+
+                        @include sm-max {
+                            bottom: -16.125rem;
+                            height: 16.125rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .cv-main-col {
+        padding-bottom: 1.75rem;
+
+        @include md-max {
+            padding-bottom: 1.25rem;
+        }
+    }
+
+    .cv-main-gutter-right {
+        padding-right: 2rem;
+        border-right: 1px solid $primary-color;
+
+        @include md-max {
+            padding-left: 2rem;
+            border-left: 4px solid $primary-color;
+            border-right: 0;
+        }
+
+        @include xs-max {
+            border: 0;
+        }
+    }
+
+    .cv-main-gutter-left {
+        padding-left: 2rem;
+        border-left: 1px solid $primary-color;
+
+        @include md-max {
+            padding-right: 2rem;
+            border-left-width: 4px;
+        }
+
+        @include xs-max {
+            border: 0;
+        }
+    }
+
+    .cv-main-points {
+        position: relative;
+
+        &::before,
+        &::after {
+            content: '';
+            z-index: 1;
+            position: absolute;
+            @include circle;
+        }
+
+        &::before {
+            top: 0;
+            right: -14px;
+            width: 26px;
+            height: 26px;
+            background-color: $primary-color;
+
+            @include md-max {
+                left: -15px;
+                right: auto;
+            }
+
+            @include xs-max {
+                display: none;
+            }
+        }
+
+        &::after {
+            top: 3px;
+            right: -11px;
+            width: 20px;
+            height: 20px;
+            background-color: $light-color;
+
+            @include md-max {
+                left: -12px;
+                right: auto;
+            }
+
+            @include xs-max {
+                display: none;
+            }
+        }
+    }
+
+    .cv-main-icon {
+        position: relative;
+
+        @include sm-min-max {
+
+            &.cv-skills-icon,
+            &.cv-hobbies-icon {
+                padding-right: 1rem;
+                padding-left: 1rem;
+            }
+
+            &.cv-skills-icon {
+                .has-point {
+                    &::before {
+                        left: -26px;
+                    }
+                }
+            }
+        }
+
+        &::after {
+            z-index: 2;
+            position: absolute;
+            top: 6px;
+            left: -8.5px;
+            color: $primary-color;
+            font: normal 14px/1 'icomoon';
+
+            @include md-max {
+                top: -74px;
+                left: -9px;
+            }
+
+            @include sm-max {
+                top: -66px;
+            }
+
+            @include xs-max {
+                display: none;
+            }
+        }
+    }
+
+    .cv-profile-icon {
+        &::after {
+            content: '\e908';
+        }
+    }
+
+    .cv-work-icon {
+        &::after {
+            content: '\e900';
+        }
+    }
+
+    .cv-education-icon {
+        &::after {
+            content: '\e907';
+        }
+    }
+
+    .cv-skills-icon {
+        &::after {
+            content: '\e90a';
+        }
+    }
+
+    .cv-hobbies-icon {
+        &::after {
+            content: '\e909';
+        }
+    }
+
+    .has-point {
+        position: relative;
+
+        &::before {
+            content: '';
+            z-index: 1;
+            position: absolute;
+            top: 4px;
+            left: -41px;
+            width: 16px;
+            height: 16px;
+            background-color: $primary-color;
+            @include circle;
+
+            @include md-max {
+                left: -42px;
+            }
+
+            @include xs-max {
+                display: none;
+            }
+        }
+    }
+
+    h2,
+    h3 {
+        margin-bottom: 1.25rem;
+        color: $primary-color;
+        font: 700 1.5rem/1.2 $primary-font-stack;
+        text-transform: uppercase;
+
+        @include sm-max {
+            font-size: 1.375rem;
+            line-height: 1.25;
+        }
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        line-height: 1;
+        letter-spacing: 0.025em;
+        text-align: right;
+
+        @include lg-min-max {
+            font-size: 2rem;
+        }
+
+        @include sm-max {
+            font-size: 2rem;
+        }
+
+        @include md-max {
+            position: relative;
+            text-align: left;
+
+            &::after {
+                @include pseudo-element;
+                position: absolute;
+                bottom: -1.25rem;
+                left: -2rem;
+                width: 100px;
+                height: 4px;
+                background-color: $secondary-color;
+
+                @include xs-max {
+                    left: 0;
+                    width: 110px;
+                }
+            }
+
+            br {
+                display: none;
+            }
+        }
+    }
+
+    h3 {
+        span {
+            font: inherit;
+            text-transform: none;
+        }
+
+        strong {
+            display: block;
+            color: $secondary-color;
+            font-weight: 400;
+            font-size: 0.75em;
+            line-height: 1.25;
+            text-transform: none;
+
+            @include xs-max {
+                margin-top: 0.25rem;
+
+                br {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    h4 {
+        color: $content-color;
+        font: italic 700 1.125rem/1.4 $primary-font-stack;
+    }
+
+    p,
+    ul {
+        margin-bottom: 1.25rem;
+        color: $content-color;
+        font-size: 1.125rem;
+        font-family: $secondary-font-stack;
+
+        @media screen and (max-width: 480px) {
+            font-size: 1rem;
+        }
+
+        a {
+            color: $secondary-color;
+
+            &:hover,
+            &:focus {
+                color: $primary-color;
+            }
+        }
+    }
+
+    .job-description-list,
+    .portfolio-list {
+        @include reset-list;
+    }
+
+    .job-description-list {
+        list-style-type: circle;
+    }
+
+    .portfolio-list {
+        list-style: square inside none;
+
+        @include xs-max {
+            list-style-position: outside;
+        }
+
+        li::marker {
+            color: $secondary-color;
+        }
+
+        a {
+            position: relative;
+            display: inline-block;
+            font-size: 1rem;
+            word-break: break-all;
+
+            &::after {
+                position: absolute;
+                top: 50%;
+                right: -1rem;
+                transform: translateY(-50%);
+
+                content: '\e90b';
+                font: normal 1.25em/1 'icomoon';
+
+                opacity: 0;
+                transition: inherit;
+            }
+
+            &:hover::after,
+            &:focus::after {
+                right: -2rem;
+                opacity: 1;
+            }
+
+            @media screen and (max-width: 480px) {
+                font-size: 0.875rem;
+
+                &::after {
+                    right: 0;
+                }
+
+                &:hover::after,
+                &:focus::after {
+                    right: -1.5rem;
+                }
+            }
+        }
+    }
+
+    .cv-main-mini-box {
+        padding-bottom: 0.25rem;
+        border-bottom: 1px solid $bar-color;
+
+        &+.cv-main-mini-box {
+            padding-top: 1.5rem;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+    }
+
+    .skills-list-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        @include md-max {
+            justify-content: start;
+        }
+
+        @include sm-min-max {
+            flex-wrap: nowrap;
+        }
+    }
+
+    .skills-list {
+        @include reset-list;
+        font: italic 600 1rem/1.5 $special-font-stack;
+
+        @include md-max {
+            margin-right: 4rem;
+        }
+
+        @include sm-max {
+            margin-right: 1rem;
+        }
+
+        @include xs-max {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-right: 0;
+        }
+
+        li+li {
+            margin-top: 0.25rem;
+        }
+
+        strong {
+            position: relative;
+            display: inline-block;
+            font: inherit;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                height: 5px;
+                border-radius: 10px;
+                transform: translateY(-50%);
+            }
+
+            &::before {
+                background-color: $bar-color;
+            }
+
+            &::after {
+                width: auto;
+                background-color: $secondary-color;
+                transition: all 2s linear;
+            }
+        }
+
+        .bar-100.trigger-bar-animate {
+            &::after {
+                right: 0;
+            }
+        }
+
+        .bar-80.trigger-bar-animate {
+            &::after {
+                right: 20px;
+            }
+        }
+
+        .bar-60.trigger-bar-animate {
+            &::after {
+                right: 40px;
+            }
+        }
+
+        .bar-50.trigger-bar-animate {
+            &::after {
+                right: 50px;
+            }
+        }
+
+        .bar-40.trigger-bar-animate {
+            &::after {
+                right: 60px;
+            }
+        }
+
+        .bar-20.trigger-bar-animate {
+            &::after {
+                right: 80px;
+            }
+        }
+    }
+
+    .pro-skills-list {
+        strong {
+            min-width: 200px;
+
+            &::before,
+            &::after {
+                left: 100px;
+            }
+
+            &::before {
+                width: 100px;
+            }
+
+            &::after {
+                right: 100px;
+            }
+        }
+    }
+
+    .personal-skills-list {
+        strong {
+            min-width: 240px;
+
+            &::before,
+            &::after {
+                left: 140px;
+            }
+
+            &::before {
+                width: 100px;
+            }
+
+            &::after {
+                right: 100px;
+            }
+        }
+    }
+
+    .language-skills-list {
+        strong {
+            min-width: 265px;
+
+            &::before,
+            &::after {
+                left: 165px;
+            }
+
+            &::before {
+                width: 100px;
+            }
+
+            &::after {
+                right: 100px;
+            }
+        }
+    }
+
+    .hobbies-interests-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        text-align: center;
+        @include reset-list;
+
+        @include md-max {
+            margin-bottom: 0;
+        }
+
+        @include xs-max {
+            justify-content: flex-start;
+            margin-left: -1rem;
+            margin-right: -1rem;
+        }
+
+        .int {
+            font: 700 0.75rem/1.5 $primary-font-stack;
+            text-transform: uppercase;
+
+            &::before {
+                display: block;
+                margin: 0 auto 1rem;
+                color: $secondary-color;
+                font: normal 3rem/1 'icomoon';
+            }
+
+            @include xs-max {
+                min-width: 110px;
+                margin: 1rem 1rem 0 0;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        .int-1 {
+            &::before {
+                content: '\e910';
+            }
+        }
+
+        .int-2 {
+            &::before {
+                content: '\e912';
+            }
+        }
+
+        .int-3 {
+            &::before {
+                content: '\e90c';
+            }
+        }
+
+        .int-4 {
+            &::before {
+                content: '\e911';
+            }
+        }
+
+        .int-5 {
+            &::before {
+                content: '\e90d';
+            }
+        }
+
+        .int-6 {
+            &::before {
+                content: '\e90f';
+            }
+        }
+
+        .int-7 {
+            &::before {
+                content: '\e90e';
+            }
+        }
+    }
+}
+
+.cv-footer {
+    margin-top: 3rem;
+    @include padding-3;
+    text-align: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: -2rem;
+        right: -2rem;
+        width: auto;
+        height: 0;
+        border-top: 2px solid $primary-color;
+
+        @include md-max {
+            left: 0;
+            right: 0;
+        }
+    }
+
+    h3 {
+        margin-bottom: 1.75rem;
+        color: $primary-color;
+        font: 600 2rem/1.1 $special-font-stack;
+        text-transform: uppercase;
+    }
+
+    .cv-social-link {
+        position: relative;
+        display: inline-block;
+        margin: 0 0.75rem;
+
+        span {
+            position: absolute;
+            top: -2rem;
+            left: -3.5rem;
+            min-width: 10rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            color: $light-color;
+            font-family: $primary-font-stack;
+            opacity: 0;
+            pointer-events: none;
+            transition: inherit;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -1.75rem;
+                right: 0;
+                left: 0;
+                width: 0;
+                height: 0;
+                margin: 0 auto;
+                border: 1rem solid transparent;
+                border-top: 0.75rem solid;
+            }
+        }
+
+        &::after {
+            display: block;
+            font: normal 3rem/1 'icomoon';
+        }
+
+        &:hover {
+            span {
+                top: -4.5rem;
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+
+    .cv-linkedin-link {
+        color: $linkedin-blue;
+
+        span {
+            background-color: $linkedin-blue;
+
+            &::after {
+                border-top-color: $linkedin-blue;
+            }
+        }
+
+        &::after {
+            content: '\e904';
+        }
+    }
+
+    .cv-facebook-link {
+        color: $facebook-blue;
+
+        span {
+            background-color: $facebook-blue;
+
+            &::after {
+                border-top-color: $facebook-blue;
+            }
+        }
+
+        &::after {
+            content: '\e902';
+        }
+    }
+}
