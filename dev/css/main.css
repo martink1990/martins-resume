@@ -355,6 +355,8 @@ footer {
 
 .cv-main .job-description-list {
   list-style-type: circle; }
+  .cv-main .job-description-list li + li {
+    margin-top: 0.25rem; }
 
 .cv-main .portfolio-list {
   list-style: square inside none; }
@@ -363,6 +365,8 @@ footer {
       list-style-position: outside; } }
   .cv-main .portfolio-list li::marker {
     color: #990000; }
+  .cv-main .portfolio-list li + li {
+    margin-top: 0.25rem; }
   .cv-main .portfolio-list a {
     position: relative;
     display: inline-block;
@@ -384,16 +388,17 @@ footer {
     .cv-main .portfolio-list a:hover::after, .cv-main .portfolio-list a:focus::after {
       right: -2rem;
       opacity: 1; }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 374px) {
+      .cv-main .portfolio-list a::after {
+        right: 0; }
+      .cv-main .portfolio-list a:hover::after, .cv-main .portfolio-list a:focus::after {
+        right: -1.5rem; } }
+    @media (min-width: 320px) and (max-width: 374px) {
       .cv-main .portfolio-list a {
-        font-size: 0.875rem; }
-        .cv-main .portfolio-list a::after {
-          right: 0; }
-        .cv-main .portfolio-list a:hover::after, .cv-main .portfolio-list a:focus::after {
-          right: -1.5rem; } }
+        font-size: calc(13px + (16 - 13) * ((100vw - 320px) / (374 - 320))); } }
 
 .cv-main .cv-main-mini-box {
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid #ccc; }
   .cv-main .cv-main-mini-box + .cv-main-mini-box {
     padding-top: 1.5rem; }
@@ -401,104 +406,72 @@ footer {
     padding-bottom: 0;
     border-bottom: 0; }
 
-.cv-main .skills-list-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
-  @media (max-width: 991px) {
-    .cv-main .skills-list-box {
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: start; } }
-  @media (min-width: 576px) and (max-width: 767px) {
-    .cv-main .skills-list-box {
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap; } }
-
 .cv-main .skills-list {
+  -webkit-column-count: 3;
+     -moz-column-count: 3;
+          column-count: 3;
   list-style: none;
   padding-left: 0;
   font: italic 600 1rem/1.5 "Montserrat", sans-serif; }
-  @media (max-width: 991px) {
-    .cv-main .skills-list {
-      margin-right: 4rem; } }
-  @media (max-width: 767px) {
-    .cv-main .skills-list {
-      margin-right: 1rem; } }
   @media (max-width: 575px) {
     .cv-main .skills-list {
-      -webkit-box-flex: 0;
-          -ms-flex: 0 0 100%;
-              flex: 0 0 100%;
-      max-width: 100%;
-      margin-right: 0; } }
-  .cv-main .skills-list li + li {
-    margin-top: 0.25rem; }
+      -webkit-column-count: 2;
+         -moz-column-count: 2;
+              column-count: 2; } }
+  .cv-main .skills-list li {
+    margin-bottom: 0.75rem; }
   .cv-main .skills-list strong {
     position: relative;
     display: inline-block;
+    min-width: 100px;
+    padding-bottom: 0.5rem;
     font: inherit; }
     .cv-main .skills-list strong::before, .cv-main .skills-list strong::after {
       content: '';
       position: absolute;
-      top: 50%;
+      bottom: 0;
+      left: 0;
       height: 5px;
-      border-radius: 10px;
-      -webkit-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-              transform: translateY(-50%); }
+      border-radius: 10px; }
     .cv-main .skills-list strong::before {
+      width: 100px;
       background-color: #ccc; }
     .cv-main .skills-list strong::after {
-      width: auto;
+      width: 0;
       background-color: #990000;
       -webkit-transition: all 2s linear;
       -o-transition: all 2s linear;
       transition: all 2s linear; }
   .cv-main .skills-list .bar-100.trigger-bar-animate::after {
-    right: 0; }
+    width: 100px; }
   .cv-main .skills-list .bar-80.trigger-bar-animate::after {
-    right: 20px; }
+    width: 80px; }
   .cv-main .skills-list .bar-60.trigger-bar-animate::after {
-    right: 40px; }
+    width: 60px; }
   .cv-main .skills-list .bar-50.trigger-bar-animate::after {
-    right: 50px; }
+    width: 50px; }
   .cv-main .skills-list .bar-40.trigger-bar-animate::after {
-    right: 60px; }
+    width: 40px; }
   .cv-main .skills-list .bar-20.trigger-bar-animate::after {
-    right: 80px; }
+    width: 20px; }
 
-.cv-main .pro-skills-list strong {
-  min-width: 200px; }
-  .cv-main .pro-skills-list strong::before, .cv-main .pro-skills-list strong::after {
-    left: 100px; }
-  .cv-main .pro-skills-list strong::before {
-    width: 100px; }
-  .cv-main .pro-skills-list strong::after {
-    right: 100px; }
+@media screen and (max-width: 359px) {
+  .cv-main .personal-skills-list {
+    -webkit-column-count: 1;
+       -moz-column-count: 1;
+            column-count: 1; } }
 
-.cv-main .personal-skills-list strong {
-  min-width: 240px; }
-  .cv-main .personal-skills-list strong::before, .cv-main .personal-skills-list strong::after {
-    left: 140px; }
-  .cv-main .personal-skills-list strong::before {
-    width: 100px; }
-  .cv-main .personal-skills-list strong::after {
-    right: 100px; }
+@media (min-width: 992px) and (max-width: 1199px) {
+  .cv-main .language-skills-list {
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2; } }
 
-.cv-main .language-skills-list strong {
-  min-width: 265px; }
-  .cv-main .language-skills-list strong::before, .cv-main .language-skills-list strong::after {
-    left: 165px; }
-  .cv-main .language-skills-list strong::before {
-    width: 100px; }
-  .cv-main .language-skills-list strong::after {
-    right: 100px; }
+@media screen and (max-width: 399px) {
+  .cv-main .language-skills-list {
+    -webkit-column-count: 1;
+       -moz-column-count: 1;
+            column-count: 1; } }
 
 .cv-main .hobbies-interests-box {
   display: -webkit-box;
@@ -520,8 +493,8 @@ footer {
       -webkit-box-pack: start;
           -ms-flex-pack: start;
               justify-content: flex-start;
-      margin-left: -1rem;
-      margin-right: -1rem; } }
+      margin-left: -0.5rem;
+      margin-right: -0.5rem; } }
   .cv-main .hobbies-interests-box .int {
     font: 700 0.75rem/1.5 "Raleway", sans-serif;
     text-transform: uppercase; }
@@ -532,10 +505,10 @@ footer {
       font: normal 3rem/1 'icomoon'; }
     @media (max-width: 575px) {
       .cv-main .hobbies-interests-box .int {
-        min-width: 110px;
-        margin: 1rem 1rem 0 0;
-        padding-left: 1rem;
-        padding-right: 1rem; } }
+        min-width: 100px;
+        margin-top: 1rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem; } }
   .cv-main .hobbies-interests-box .int-1::before {
     content: '\e910'; }
   .cv-main .hobbies-interests-box .int-2::before {

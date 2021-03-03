@@ -484,6 +484,10 @@ footer {
 
     .job-description-list {
         list-style-type: circle;
+
+        li+li {
+            margin-top: 0.25rem;
+        }
     }
 
     .portfolio-list {
@@ -495,6 +499,10 @@ footer {
 
         li::marker {
             color: $secondary-color;
+        }
+
+        li+li {
+            margin-top: 0.25rem;
         }
 
         a {
@@ -522,9 +530,7 @@ footer {
                 opacity: 1;
             }
 
-            @media screen and (max-width: 480px) {
-                font-size: 0.875rem;
-
+            @media screen and (max-width: 374px) {
                 &::after {
                     right: 0;
                 }
@@ -534,11 +540,15 @@ footer {
                     right: -1.5rem;
                 }
             }
+
+            @media (min-width: 320px) and (max-width: 374px) {
+                font-size: calc(13px + (16 - 13) * ((100vw - 320px) / (374 - 320)));
+            }
         }
     }
 
     .cv-main-mini-box {
-        padding-bottom: 0.25rem;
+        padding-bottom: 0.5rem;
         border-bottom: 1px solid $bar-color;
 
         &+.cv-main-mini-box {
@@ -551,63 +561,43 @@ footer {
         }
     }
 
-    .skills-list-box {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        @include md-max {
-            justify-content: start;
-        }
-
-        @include sm-min-max {
-            flex-wrap: nowrap;
-        }
-    }
-
     .skills-list {
+        column-count: 3;
         @include reset-list;
         font: italic 600 1rem/1.5 $special-font-stack;
 
-        @include md-max {
-            margin-right: 4rem;
-        }
-
-        @include sm-max {
-            margin-right: 1rem;
-        }
-
         @include xs-max {
-            flex: 0 0 100%;
-            max-width: 100%;
-            margin-right: 0;
+            column-count: 2;
         }
 
-        li+li {
-            margin-top: 0.25rem;
+        li {
+            margin-bottom: 0.75rem;
         }
 
         strong {
             position: relative;
             display: inline-block;
+            min-width: 100px;
+            padding-bottom: 0.5rem;
             font: inherit;
 
             &::before,
             &::after {
                 content: '';
                 position: absolute;
-                top: 50%;
+                bottom: 0;
+                left: 0;
                 height: 5px;
                 border-radius: 10px;
-                transform: translateY(-50%);
             }
 
             &::before {
+                width: 100px;
                 background-color: $bar-color;
             }
 
             &::after {
-                width: auto;
+                width: 0;
                 background-color: $secondary-color;
                 transition: all 2s linear;
             }
@@ -615,95 +605,54 @@ footer {
 
         .bar-100.trigger-bar-animate {
             &::after {
-                right: 0;
+                width: 100px;
             }
         }
 
         .bar-80.trigger-bar-animate {
             &::after {
-                right: 20px;
+                width: 80px;
             }
         }
 
         .bar-60.trigger-bar-animate {
             &::after {
-                right: 40px;
+                width: 60px;
             }
         }
 
         .bar-50.trigger-bar-animate {
             &::after {
-                right: 50px;
+                width: 50px;
             }
         }
 
         .bar-40.trigger-bar-animate {
             &::after {
-                right: 60px;
+                width: 40px;
             }
         }
 
         .bar-20.trigger-bar-animate {
             &::after {
-                right: 80px;
-            }
-        }
-    }
-
-    .pro-skills-list {
-        strong {
-            min-width: 200px;
-
-            &::before,
-            &::after {
-                left: 100px;
-            }
-
-            &::before {
-                width: 100px;
-            }
-
-            &::after {
-                right: 100px;
+                width: 20px;
             }
         }
     }
 
     .personal-skills-list {
-        strong {
-            min-width: 240px;
-
-            &::before,
-            &::after {
-                left: 140px;
-            }
-
-            &::before {
-                width: 100px;
-            }
-
-            &::after {
-                right: 100px;
-            }
+        @media screen and (max-width: 359px) {
+            column-count: 1;
         }
     }
 
     .language-skills-list {
-        strong {
-            min-width: 265px;
+        @include lg-min-max {
+            column-count: 2;
+        }
 
-            &::before,
-            &::after {
-                left: 165px;
-            }
-
-            &::before {
-                width: 100px;
-            }
-
-            &::after {
-                right: 100px;
-            }
+        @media screen and (max-width: 399px) {
+            column-count: 1;
         }
     }
 
@@ -720,8 +669,8 @@ footer {
 
         @include xs-max {
             justify-content: flex-start;
-            margin-left: -1rem;
-            margin-right: -1rem;
+            margin-left: -0.5rem;
+            margin-right: -0.5rem;
         }
 
         .int {
@@ -736,10 +685,10 @@ footer {
             }
 
             @include xs-max {
-                min-width: 110px;
-                margin: 1rem 1rem 0 0;
-                padding-left: 1rem;
-                padding-right: 1rem;
+                min-width: 100px;
+                margin-top: 1rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
             }
         }
 
